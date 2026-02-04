@@ -154,9 +154,9 @@
             label = "BASE";
             bindings = <
             &kp S    &kp T        &kp R    &kp A      &kp ESCAPE        &kp Y  &kp U  &kp I                 &kp O    &kp P
-            &kp O    &kp I        &kp Y    &kp E      &sk LEFT_SHIFT    &kp H  &kp J  &kp K                 &kp L    &kp SEMICOLON
+            &kp O    &kp I        &kp Y    &lt 4 E    &sk LEFT_SHIFT    &kp H  &kp J  &kp K                 &kp L    &kp SEMICOLON
 &kp DELETE  &kp TAB  &kp AT_SIGN  &kp SQT  &kp EQUAL  &sk LCTRL         &kp N  &kp M  &kp COMMA             &kp DOT  &kp FSLH       &kp BACKSLASH
-                                  &mo 2    &kp ENTER  &lt 1 SPACE       &mo 1  &mo 2  &mt LEFT_CONTROL TAB
+                                  &mo 1    &kp ENTER  &lt 2 SPACE       &mo 1  &mo 2  &mt LEFT_CONTROL TAB
             >;
         };
 
@@ -173,10 +173,10 @@
         sym_layer {
             label = "SYM";
             bindings = <
-         &kp PERIOD     &kp HASH   &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp PERCENT    &kp CARET  &kp AMPERSAND     &kp STAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-         &kp BACKSLASH  &kp GRAVE  &none           &none            &kp PLUS       &kp EQUAL  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp SINGLE_QUOTE      &kp QUESTION
-&kp TAB  &kp PIPE       &kp TILDE  &none           &kp BACKSLASH    &kp PIPE       &kp MINUS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp DOUBLE_QUOTES     &kp SLASH              &trans
-                                   &mo 2           &kp ENTER        &kp SPACE      &mo 1      &mo 2             &mt LCTRL TAB
+         &kp GRAVE      &kp HASH    &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp CARET        &kp CARET  &kp AMPERSAND     &kp STAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+         &kp BACKSLASH  &kp DOLLAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PLUS         &kp EQUAL  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp SINGLE_QUOTE      &kp QUESTION
+&kp TAB  &kp PIPE       &kp TILDE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp AMPERSAND    &kp MINUS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp DOUBLE_QUOTES     &kp SLASH              &trans
+                                    &trans                &kp ENTER              &kp SPACE        &mo 1      &mo 2             &mt LCTRL TAB
             >;
         };
 
@@ -186,6 +186,15 @@
            &kp LA(N6)  &kp LA(N7)  &kp LA(N8)      &kp LA(N9)  &kp LA(N0)    &kp ESC  &none  &none  &none  &none
 &kp LA(Q)  &none       &kp LA(F)   &none           &none       &none         &kp ESC  &none  &none  &none  &none  &none
                                    &kp LEFT_SHIFT  &none       &to 0         &none    &none  &none
+            >;
+        };
+
+        Sym2_layer {
+            bindings = <
+              &kp EXCLAMATION  &kp UNDERSCORE    &kp MINUS      &none  &none    &none  &none  &none  &none  &none
+              &kp COMMA        &kp PERIOD        &kp SEMICOLON  &none  &none    &none  &none  &none  &none  &none
+&kp QUESTION  &kp LESS_THAN    &kp GREATER_THAN  &kp PERCENT    &none  &none    &none  &none  &none  &none  &none  &none
+                                                 &none          &none  &none    &none  &none  &none
             >;
         };
     };
