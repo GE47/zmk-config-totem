@@ -45,25 +45,49 @@
     combos {
         compatible = "zmk,combos";
 
-        Escape-Right {
-            bindings = <&kp ESCAPE>;
-            key-positions = <5 6>;
-            layers = <0 1 2>;
-        };
-
         BackSpace {
             bindings = <&kp BACKSPACE>;
-            key-positions = <8 7>;
+            key-positions = <2 13>;
         };
 
-        Ent {
-            bindings = <&kp ENTER>;
-            key-positions = <15 16>;
+        kp_a {
+            bindings = <&kp B>;
+            key-positions = <13 10>;
         };
 
-        Base {
-            bindings = <&to 0>;
-            key-positions = <13 14>;
+        kp_c {
+            bindings = <&kp C>;
+            key-positions = <12 13>;
+        };
+
+        kp_d {
+            bindings = <&kp D>;
+            key-positions = <2 1 3>;
+        };
+
+        kp_f {
+            bindings = <&kp F>;
+            key-positions = <2 3>;
+        };
+
+        kp_g {
+            bindings = <&kp G>;
+            key-positions = <2 1>;
+        };
+
+        kp_h {
+            bindings = <&kp H>;
+            key-positions = <22 24>;
+        };
+
+        kp_j {
+            bindings = <&kp J>;
+            key-positions = <0 1>;
+        };
+
+        kp_k {
+            bindings = <&kp K>;
+            key-positions = <10 12>;
         };
     };
 
@@ -73,10 +97,10 @@
         base_layer {
             label = "BASE";
             bindings = <
-         &kp Q  &kp W  &kp E         &kp R                   &kp T             &kp Y  &kp U  &kp I                 &kp O    &kp P
-         &kp A  &kp S  &kp D         &kp F                   &kp G             &kp H  &kp J  &kp K                 &kp L    &kp SEMICOLON
-&kp TAB  &kp Z  &kp X  &kp C         &kp V                   &kp B             &kp N  &kp M  &kp COMMA             &kp DOT  &kp FSLH       &kp BACKSLASH
-                       &kp LEFT_ALT  &mt LEFT_COMMAND SPACE  &kp LEFT_SHIFT    &mo 1  &mo 2  &mt LEFT_CONTROL TAB
+            &kp S    &kp T        &kp R    &kp A      &kp ESCAPE        &kp Y  &kp U  &kp I                 &kp O    &kp P
+            &kp O    &kp I        &kp Y    &kp E      &sk LEFT_SHIFT    &kp H  &kp J  &kp K                 &kp L    &kp SEMICOLON
+&kp DELETE  &kp TAB  &kp AT_SIGN  &kp SQT  &kp EQUAL  &sk LCTRL         &kp N  &kp M  &kp COMMA             &kp DOT  &kp FSLH       &kp BACKSLASH
+                                  &mo 2    &kp ENTER  &kp SPACE         &mo 1  &mo 2  &mt LEFT_CONTROL TAB
             >;
         };
 
@@ -93,10 +117,19 @@
         sym_layer {
             label = "SYM";
             bindings = <
-         &kp EXCL  &kp AT     &kp HASH  &kp DOLLAR              &kp PERCENT       &kp CARET  &kp AMPERSAND     &kp STAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-         &none     &kp GRAVE  &none     &none                   &kp PLUS          &kp EQUAL  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp SINGLE_QUOTE      &kp QUESTION
-&kp TAB  &none     &kp TILDE  &none     &kp BACKSLASH           &kp PIPE          &kp MINUS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp DOUBLE_QUOTES     &kp SLASH              &trans
-                              &kp LALT  &mt LEFT_COMMAND SPACE  &kp LEFT_SHIFT    &mo 1      &mo 2             &mt LCTRL TAB
+         &kp PERIOD     &kp HASH   &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp PERCENT    &kp CARET  &kp AMPERSAND     &kp STAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+         &kp BACKSLASH  &kp GRAVE  &none           &none            &kp PLUS       &kp EQUAL  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp SINGLE_QUOTE      &kp QUESTION
+&kp TAB  &kp PIPE       &kp TILDE  &none           &kp BACKSLASH    &kp PIPE       &kp MINUS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp DOUBLE_QUOTES     &kp SLASH              &trans
+                                   &mo 2           &kp ENTER        &kp SPACE      &mo 1      &mo 2             &mt LCTRL TAB
+            >;
+        };
+
+        NAV_layer {
+            bindings = <
+           &kp LA(N1)  &kp LA(N2)  &kp LA(N3)      &kp LA(N4)  &kp LA(N5)    &none    &none  &none  &none  &none
+           &kp LA(N5)  &kp LA(N6)  &kp LA(N7)      &kp LA(N8)  &kp LA(N9)    &kp ESC  &none  &none  &none  &none
+&kp LA(Q)  &kp LA(N0)  &kp LA(F)   &none           &none       &none         &kp ESC  &none  &none  &none  &none  &none
+                                   &kp LEFT_SHIFT  &none       &to 0         &none    &none  &none
             >;
         };
     };
