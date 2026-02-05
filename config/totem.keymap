@@ -1,14 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#define BASE 0
-#define NAV  1
-#define NUM  2
-#define SYM  3
-#define FUN  4
-#define MEDIA 5
-#define MOUSE 6
-
 &mt {
     flavor = "tap-preferred";
     tapping_term_ms = <200>;
@@ -41,161 +33,49 @@
             bindings = <&kp>, <&kp>;
         };
     };
+/ {
+  keymap {
+    compatible = "zmk,keymap";
 
-    combos {
-        compatible = "zmk,combos";
-
-        BackSpace {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <2 13>;
-        };
-
-        kp_a {
-            bindings = <&kp B>;
-            key-positions = <11 13>;
-        };
-
-        kp_c {
-            bindings = <&kp C>;
-            key-positions = <12 13>;
-        };
-
-        kp_d {
-            bindings = <&kp D>;
-            key-positions = <2 1 3>;
-        };
-
-        kp_f {
-            bindings = <&kp F>;
-            key-positions = <2 3>;
-        };
-
-        kp_g {
-            bindings = <&kp G>;
-            key-positions = <2 1>;
-        };
-
-        kp_h {
-            bindings = <&kp H>;
-            key-positions = <22 24>;
-        };
-
-        kp_j {
-            bindings = <&kp J>;
-            key-positions = <23 13>;
-        };
-
-        kp_k {
-            bindings = <&kp K>;
-            key-positions = <23 24>;
-        };
-
-        kp_l {
-            bindings = <&kp L>;
-            key-positions = <11 12 13>;
-        };
-
-        kp_m {
-            bindings = <&kp M>;
-            key-positions = <11 2>;
-        };
-
-        kp_n {
-            bindings = <&kp N>;
-            key-positions = <11 23>;
-        };
-
-        kp_p {
-            bindings = <&kp P>;
-            key-positions = <11 3>;
-        };
-
-        kp_q {
-            bindings = <&kp Q>;
-            key-positions = <11 24>;
-        };
-
-        kp_u {
-            bindings = <&kp U>;
-            key-positions = <12 11>;
-        };
-
-        kp_v {
-            bindings = <&kp V>;
-            key-positions = <2 10>;
-        };
-
-        kp_w {
-            bindings = <&kp W>;
-            key-positions = <1 3>;
-        };
-
-        kp_x {
-            bindings = <&kp X>;
-            key-positions = <22 3>;
-        };
-
-        kp_z {
-            bindings = <&kp Z>;
-            key-positions = <22 23>;
-        };
-
-        tog_nav {
-            bindings = <&tog 3>;
-            key-positions = <14 25>;
-            layers = <0 3>;
-        };
+    frog_layer {
+      label = "FROG";
+      bindings = <
+        &kp F   &kp D   &kp N   &kp I   &kp G        &kp G   &kp I   &kp N   &kp D   &kp F
+        &lt 3 BSPC  &kp S   &kp T   &kp H   &kp E   &kp O   &kp O   &kp E   &kp H   &kp T   &kp S   &lt 3 BSPC
+        &kp LSFT &kp C   &kp W   &kp R   &kp A   &kp U        &kp U   &kp A   &kp R   &kp W   &kp C   &kp LSFT
+                         &mo 2  &mo 1  &kp SPACE    &kp SPACE &mo 1  &mo 2
+      >;
     };
 
-    keymap {
-        compatible = "zmk,keymap";
-
-        base_layer {
-            label = "BASE";
-            bindings = <
-            &kp S    &kp T        &kp R    &kp A      &kp ESCAPE        &kp Y  &kp U  &kp I                 &kp O    &kp P
-            &kp O    &kp I        &kp Y    &lt 4 E    &sk LEFT_SHIFT    &kp H  &kp J  &kp K                 &kp L    &kp SEMICOLON
-&kp DELETE  &kp TAB  &kp AT_SIGN  &kp SQT  &kp EQUAL  &sk LCTRL         &kp N  &kp M  &kp COMMA             &kp DOT  &kp FSLH       &kp BACKSLASH
-                                  &mo 1    &kp ENTER  &lt 2 SPACE       &mo 1  &mo 2  &mt LEFT_CONTROL TAB
-            >;
-        };
-
-        num_layer {
-            label = "NUM";
-            bindings = <
-         &kp NUMBER_1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6  &kp N7  &kp N8         &kp N9  &kp N0
-         &kp N6        &kp N7  &kp N8  &kp N9  &kp N0    &none   &none   &none          &none   &none
-&kp TAB  &none         &none   &none   &none   &none     &none   &none   &none          &none   &none   &none
-                               &none   &none   &trans    &mo 1   &mo 2   &mt LCTRL TAB
-            >;
-        };
-
-        sym_layer {
-            label = "SYM";
-            bindings = <
-         &kp GRAVE      &kp HASH    &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp CARET        &kp CARET  &kp AMPERSAND     &kp STAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-         &kp BACKSLASH  &kp DOLLAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PLUS         &kp EQUAL  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp SINGLE_QUOTE      &kp QUESTION
-&kp TAB  &kp PIPE       &kp TILDE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp AMPERSAND    &kp MINUS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp DOUBLE_QUOTES     &kp SLASH              &trans
-                                    &trans                &kp ENTER              &kp SPACE        &mo 1      &mo 2             &mt LCTRL TAB
-            >;
-        };
-
-        NAV_layer {
-            bindings = <
-           &kp LA(N1)  &kp LA(N2)  &kp LA(N3)      &kp LA(N4)  &kp LA(N5)    &none    &none  &none  &none  &none
-           &kp LA(N6)  &kp LA(N7)  &kp LA(N8)      &kp LA(N9)  &kp LA(N0)    &kp ESC  &none  &none  &none  &none
-&kp LA(Q)  &none       &kp LA(F)   &none           &none       &none         &kp ESC  &none  &none  &none  &none  &none
-                                   &kp LEFT_SHIFT  &none       &to 0         &none    &none  &none
-            >;
-        };
-
-        Sym2_layer {
-            bindings = <
-              &kp EXCLAMATION  &kp UNDERSCORE    &kp MINUS      &none  &none    &none  &none  &none  &none  &none
-              &kp COMMA        &kp PERIOD        &kp SEMICOLON  &none  &none    &none  &none  &none  &none  &none
-&kp QUESTION  &kp LESS_THAN    &kp GREATER_THAN  &kp PERCENT    &none  &none    &none  &none  &none  &none  &none  &none
-                                                 &none          &none  &none    &none  &none  &none
-            >;
-        };
+    sym_layer {
+      label = "SYM";
+      bindings = <
+        &kp LBKT &kp LCURLY &kp LPAR &kp AT_SIGN &kp CARET      &kp CARET &kp AT_SIGN &kp LPAR &kp LCURLY &kp LBKT
+        &kp BSLH &kp COLON  &kp SEMI &kp QMARK  &kp EXCL       &kp SLASH &kp EXCL    &kp QMARK &kp SEMI &kp COLON &kp BSLH
+        &kp TILDE &kp RBKT &kp RCURLY &kp RPAR &kp AMPERSAND &kp ASTERISK &kp ASTERISK &kp AMPERSAND &kp RPAR &kp RCURLY &kp RBKT
+                             &none &none &none        &none &none &none
+      >;
     };
+
+    num_layer {
+      label = "NUM";
+      bindings = <
+        &kp EQUAL &kp N6 &kp N7 &kp N8 &kp N9      &kp DOT &kp N9 &kp N8 &kp N7 &kp N6
+        &kp PLUS  &kp N1 &kp N2 &kp N3 &kp N4      &kp N5 &kp N4 &kp N3 &kp N2 &kp N1 &kp PLUS
+        &kp MINUS &kp HASH &kp DOLLAR &kp PERCENT &kp N0 &kp COMMA &kp COMMA &kp N0 &kp PERCENT &kp DOLLAR &kp HASH
+                          &none &none &kp LGUI     &kp LGUI &none &none
+      >;
+    };
+
+    ext_layer {
+      label = "EXT";
+      bindings = <
+        &none &kp W_BK &kp HOME &kp UP   &kp END   &kp W_FW   &kp W_FW &kp HOME &kp UP &kp END &kp W_BK
+        &none &kp LALT &kp LEFT &kp DOWN &kp RIGHT &kp DELETE &kp DELETE &kp LEFT &kp DOWN &kp RIGHT &kp LALT
+        &none &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LALT &kp LALT &kp LC(V) &kp LC(C) &kp LC(X) &kp LC(Z)
+                       &kp LSFT &kp LCTRL &kp LC(BSPC) &kp LC(BSPC) &kp LCTRL &kp LSFT
+      >;
+    };
+  };
+};
 };
