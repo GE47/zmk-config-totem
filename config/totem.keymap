@@ -1,13 +1,10 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#define BASE 0
-#define NAV  1
+#define FROG 0
+#define SYM  1
 #define NUM  2
-#define SYM  3
-#define FUN  4
-#define MEDIA 5
-#define MOUSE 6
+#define EXT  3
 
 / {
     combos {
@@ -24,58 +21,66 @@
             key-positions = <1 3>;
         };
     };
-
+/ {
     keymap {
         compatible = "zmk,keymap";
 
-        base_layer {
-            label = "BASE";
+        /* =========================
+         * BASE — FROG
+         * ========================= */
+        frog_layer {
+            label = "FROG";
             bindings = <
-            &kp Q  &kp W               &kp E           &kp R               &kp T         &kp Y      &kp U               &kp I            &kp O                &kp P
-            &kp A  &mt LEFT_COMMAND S  &mt LEFT_ALT D  &mt LEFT_CONTROL F  &kp G         &kp H      &mt LEFT_CONTROL J  &mt RIGHT_ALT K  &mt RIGHT_COMMAND L  &kp SEMICOLON
-&kp DELETE  &kp Z  &kp X               &kp C           &kp V               &kp B         &kp N      &kp M               &kp COMMA        &kp DOT              &kp FSLH       &kp BSLH
-                                       &kp ESCAPE      &lt 1 SPACE         &kp LSHIFT    &lt 3 RET  &lt 2 BSPC          &lt 4 TAB
+                /* row 1 */
+                &kp ESC     &kp F     &kp D     &kp N     &kp I
+                /* row 2 */
+                &kp BSPC    &kp S     &kp T     &kp H     &kp E
+                /* row 3 */
+                &kp LSFT    &kp C     &kp W     &kp R     &kp A
+                /* thumbs */
+                            &mo NUM  &kp SPACE  &mo SYM
             >;
         };
 
-        nav_layer {
-            label = "NAV";
-            bindings = <
-       &none  &none             &none         &none             &none             &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp INS
-       &none  &kp LEFT_COMMAND  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT    &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp CAPS
-&none  &none  &none             &none         &none             &none             &none      &none     &none     &none      &none     &none
-                                &none         &none             &none             &mo 4      &mo 0     &none
-            >;
-        };
-
-        num_layer {
-            label = "NUM";
-            bindings = <
-       &kp NUMBER_1  &kp N2            &kp N3        &kp N4     &kp N5            &kp N6     &kp N7     &kp N8    &kp N9    &kp N0
-       &none         &kp LEFT_COMMAND  &kp LEFT_ALT  &kp LCTRL  &kp LEFT_SHIFT    &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
-&none  &none         &none             &none         &none      &none             &none      &none      &none     &none     &none   &none
-                                       &mo 0         &mo 4      &none             &none      &none      &kp N0
-            >;
-        };
-
+        /* =========================
+         * SYMBOLS
+         * ========================= */
         sym_layer {
             label = "SYM";
             bindings = <
-       &kp EXCL  &kp AT     &kp HASH  &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND     &kp STAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-       &none     &kp GRAVE  &none     &none       &kp PLUS       &kp EQUAL  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp SINGLE_QUOTE      &kp QUESTION
-&none  &none     &kp TILDE  &none     &none       &kp PIPE       &kp MINUS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp DOUBLE_QUOTES     &trans                 &trans
-                            &none     &none       &none          &none      &none             &none
+                &kp TAB     &kp LBKT   &kp LCURLY &kp LPAR   &kp AT
+                &kp BSLH    &kp COLON  &kp SEMI   &kp QMARK &kp EXCL
+                &kp TILDE   &kp RBKT   &kp RCURLY &kp RPAR  &kp AMPS
+                            &none     &none      &none
             >;
         };
 
-        fun_layer {
-            label = "FUN";
+        /* =========================
+         * NUMBERS
+         * ========================= */
+        num_layer {
+            label = "NUM";
             bindings = <
-       &kp F12  &kp F7  &kp F8  &kp F9  &none    &none            &none      &none         &none             &none
-       &kp F11  &kp F4  &kp F5  &kp F6  &none    &kp RIGHT_SHIFT  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_COMMAND  &none
-&none  &kp F10  &kp F1  &kp F2  &kp F3  &none    &none            &none      &none         &none             &none  &none
-                        &none   &none   &none    &none            &none      &none
+                &kp EQUAL   &kp N6     &kp N7    &kp N8    &kp N9
+                &kp PLUS    &kp N1     &kp N2    &kp N3    &kp N4
+                &kp MINUS   &kp HASH   &kp DLLR  &kp PRCNT &kp N0
+                            &none     &kp LGUI  &kp LGUI
+            >;
+        };
+
+        /* =========================
+         * EXT / NAV / EDIT
+         * ========================= */
+        ext_layer {
+            label = "EXT";
+            bindings = <
+                &none       &kp HOME   &kp UP    &kp END   &kp PG_UP
+                &none       &kp LEFT   &kp DOWN  &kp RIGHT &kp PG_DN
+                &none       &kp LC(Z)  &kp LC(X) &kp LC(C) &kp LC(V)
+                            &kp LSFT  &kp LCTRL &kp BSPC
             >;
         };
     };
+};
+
 };
