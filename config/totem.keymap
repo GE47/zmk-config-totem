@@ -77,7 +77,7 @@
            &kp P  &kp W  &kp R  &kp A      &kp F          &kp Y  &kp U  &kp I                 &kp O    &kp P
            &kp D  &kp T  &kp H  &kp E      &kp O          &kp H  &kp J  &kp K                 &kp L    &kp SEMICOLON
 &sk LSHFT  &kp Y  &kp S  &kp N  &kp I      &kp U          &kp N  &kp M  &kp COMMA             &kp DOT  &kp FSLH       &kp BACKSLASH
-                         &mo 2  &kp ENTER  &lt 3 SPACE    &mo 2  &mo 3  &mt LEFT_CONTROL TAB
+                         &mo 2  &kp ENTER  &lt 1 SPACE    &mo 2  &mo 3  &mt LEFT_CONTROL TAB
             >;
         };
 
