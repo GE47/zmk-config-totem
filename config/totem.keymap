@@ -1,249 +1,116 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-/*
- * ZMK port of provided QMK layout
- * Keyboard: Totem
- * Hand: Left only
- * Geometry:
- * - 3 rows × 5 columns
- * - 1 outer pinky column (leftmost)
- * - 3 thumb keys
- *
- * Layers preserved
- * Combos preserved semantically
- */
-
-/* =========
- * Layers
- * ========= */
-#define STI 0
-#define FLU 1
-#define QZ  2
-#define NUM 3
-#define FN  4
-#define NAV 5
+#define STI     0
+#define FLU     1
+#define QZ      2
+#define NUMPAD  3
+#define FN      4
+#define NAV     5
 
 / {
-	keymap {
-		compatible = "zmk,keymap";
+    combos {
+        compatible = "zmk,combos";
 
-		/* =================
-		 * LAYER_STI
-		 * ================= */
-		sti_layer {
-			label = "STI";
-			bindings = <
-				&kp LALT  &kp S   &kp T   &kp I   &kp TAB
-				&kp LCTL  &kp A   &kp O   &kp E   &kp ESC
-				&kp LSFT  &kp N   &kp H   &kp R   &kp BSPC
-				          &mo QZ &mo FLU &mo NUM
-			>;
-		};
+        /* === STI layer === */
+        sti_s_t        { bindings = <&kp BACKSLASH>;  key-positions = <1 2>;  layers = <STI>; };
+        sti_t_i        { bindings = <&kp DOT>;        key-positions = <2 3>;  layers = <STI>; };
+        sti_a_o        { bindings = <&kp SINGLE_QUOTE>; key-positions = <6 7>; layers = <STI>; };
+        sti_o_e        { bindings = <&kp COMMA>;      key-positions = <7 8>;  layers = <STI>; };
+        sti_n_h        { bindings = <&kp SEMICOLON>;  key-positions = <11 12>; layers = <STI>; };
+        sti_h_r        { bindings = <&kp SPACE>;      key-positions = <12 13>; layers = <STI>; };
+        sti_n_h_r      { bindings = <&kp ENTER>;      key-positions = <11 12 13>; layers = <STI>; };
+        sti_bksp_esc   { bindings = <&kp LGUI>;       key-positions = <14 4>; layers = <STI>; };
 
-		/* =================
-		 * LAYER_FLU
-		 * ================= */
-		flu_layer {
-			label = "FLU";
-			bindings = <
-				&kp LALT  &kp D   &kp V   &kp Y   &kp INS
-				&kp LCTL  &kp F   &kp L   &kp U   &none
-				&kp LSFT  &kp M   &kp C   &kp G   &kp DEL
-				          &mo NAV &none &mo FN
-			>;
-		};
+        /* === FLU layer === */
+        flu_d_v        { bindings = <&kp LBKT>;       key-positions = <1 2>; layers = <FLU>; };
+        flu_v_y        { bindings = <&kp RBKT>;       key-positions = <2 3>; layers = <FLU>; };
+        flu_f_l        { bindings = <&kp LEFT_PARENTHESIS>;  key-positions = <6 7>; layers = <FLU>; };
+        flu_l_u        { bindings = <&kp RIGHT_PARENTHESIS>; key-positions = <7 8>; layers = <FLU>; };
+        flu_c_g        { bindings = <&kp SPACE>;      key-positions = <12 13>; layers = <FLU>; };
+        flu_m_c_g      { bindings = <&kp ENTER>;      key-positions = <11 12 13>; layers = <FLU>; };
 
-		/* =================
-		 * LAYER_QZ
-		 * ================= */
-		qz_layer {
-			label = "QZ";
-			bindings = <
-				&kp LALT  &kp P   &kp B   &kp K   &kp SCRL
-				&kp LCTL  &kp W   &kp J   &kp X   &none
-				&kp LSFT  &kp Q   &kp Z   &kp GRAVE &none
-				          &none &mo NAV &none
-			>;
-		};
+        /* === QZ layer === */
+        qz_p_b         { bindings = <&kp QUESTION>;   key-positions = <1 2>; layers = <QZ>; };
+        qz_b_k         { bindings = <&kp EXCL>;       key-positions = <2 3>; layers = <QZ>; };
+        qz_p_b_k       { bindings = <&kp DOLLAR>;     key-positions = <1 2 3>; layers = <QZ>; };
+        qz_w_j         { bindings = <&kp CARET>;      key-positions = <6 7>; layers = <QZ>; };
+        qz_j_x         { bindings = <&kp AT>;         key-positions = <7 8>; layers = <QZ>; };
+        qz_q_z         { bindings = <&kp HASH>;       key-positions = <11 12>; layers = <QZ>; };
+        qz_z_grv       { bindings = <&kp SPACE>;      key-positions = <12 13>; layers = <QZ>; };
+        qz_q_z_grv     { bindings = <&kp ENTER>;      key-positions = <11 12 13>; layers = <QZ>; };
 
-		/* =================
-		 * LAYER_NUMPAD
-		 * ================= */
-		num_layer {
-			label = "NUM";
-			bindings = <
-				&kp LALT  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp NUM
-				&kp RSFT  &kp KP_N4 &kp KP_N5 &kp KP_N6 &none
-				&kp LSFT  &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp BSPC
-				          &none &mo FN &none
-			>;
-		};
+        /* === NUMPAD layer === */
+        num_7_8        { bindings = <&kp KP_SLASH>;   key-positions = <1 2>; layers = <NUMPAD>; };
+        num_8_9        { bindings = <&kp KP_ASTERISK>;key-positions = <2 3>; layers = <NUMPAD>; };
+        num_4_5        { bindings = <&kp KP_MINUS>;   key-positions = <6 7>; layers = <NUMPAD>; };
+        num_5_6        { bindings = <&kp KP_PLUS>;    key-positions = <7 8>; layers = <NUMPAD>; };
+        num_1_2        { bindings = <&kp KP_0>;       key-positions = <11 12>; layers = <NUMPAD>; };
+        num_2_3        { bindings = <&kp KP_DOT>;     key-positions = <12 13>; layers = <NUMPAD>; };
+        num_1_2_3      { bindings = <&kp KP_ENTER>;   key-positions = <11 12 13>; layers = <NUMPAD>; };
+    };
 
-		/* =================
-		 * LAYER_FN
-		 * ================= */
-		fn_layer {
-			label = "FN";
-			bindings = <
-				&kp LALT &kp F1 &kp F2 &kp F3 &kp F4
-				&kp LCTL &kp F5 &kp F6 &kp F7 &kp F8
-				&kp LSFT &kp F9 &kp F10 &kp F11 &kp F12
-				          &none &none &none
-			>;
-		};
+    keymap {
+        compatible = "zmk,keymap";
 
-		/* =================
-		 * LAYER_NAV
-		 * ================= */
-		nav_layer {
-			label = "NAV";
-			bindings = <
-				&kp LALT &kp HOME &kp UP &kp END &kp C_NEXT
-				&kp LCTL &kp LEFT &kp DOWN &kp RIGHT &kp C_PREV
-				&kp LSFT &kp MUTE &kp VOLD &kp VOLU &kp PLAY
-				          &none &none &none
-			>;
-		};
-	};
+        sti {
+            label = "STI";
+            bindings = <
+ &kp LALT &kp S &kp T &kp I &kp TAB      &kp TAB &kp I &kp T &kp S &kp RALT
+ &kp LCTRL &kp A &kp O &kp E &kp ESC     &kp ESC &kp E &kp O &kp A &kp RCTRL
+ &kp LSHIFT &kp N &kp H &kp R &kp BACKSPACE  &kp BACKSPACE &kp R &kp H &kp N &kp RSHIFT
+                &mo QZ &mo FLU &mo NUMPAD    &mo NUMPAD &mo FLU &mo QZ
+            >;
+        };
 
-	/* =========
-	 * Combos
-	 * ========= */
-	combos {
-		compatible = "zmk,combos";
+        flu {
+            label = "FLU";
+            bindings = <
+ &kp LALT &kp D &kp V &kp Y &kp INSERT    &kp INSERT &kp Y &kp V &kp D &kp RALT
+ &kp LCTRL &kp F &kp L &kp U &none        &none &kp U &kp L &kp F &kp RCTRL
+ &kp LSHIFT &kp M &kp C &kp G &kp DELETE  &kp DELETE &kp G &kp C &kp M &kp LSHIFT
+                &mo NAV &none &mo FN      &mo FN &none &mo NAV
+            >;
+        };
 
-		/* STI */
-		combo_st {
-			timeout-ms = <60>;
-			key-positions = <1 2>;
-			bindings = <&kp BSLH>;
-		};
-		combo_ti {
-			timeout-ms = <60>;
-			key-positions = <2 3>;
-			bindings = <&kp DOT>;
-		};
-		combo_ao {
-			timeout-ms = <60>;
-			key-positions = <6 7>;
-			bindings = <&kp SQT>;
-		};
-		combo_oe {
-			timeout-ms = <60>;
-			key-positions = <7 8>;
-			bindings = <&kp COMMA>;
-		};
-		combo_nh {
-			timeout-ms = <60>;
-			key-positions = <11 12>;
-			bindings = <&kp SEMI>;
-		};
-		combo_hr {
-			timeout-ms = <60>;
-			key-positions = <12 13>;
-			bindings = <&kp SPACE>;
-		};
-		combo_nhr {
-			timeout-ms = <60>;
-			key-positions = <11 12 13>;
-			bindings = <&kp ENTER>;
-		};
-		combo_bspc_esc {
-			timeout-ms = <60>;
-			key-positions = <4 14>;
-			bindings = <&kp LGUI>;
-		};
+        qz {
+            label = "QZ";
+            bindings = <
+ &kp LALT &kp P &kp B &kp K &kp SCROLLLOCK   &kp SCROLLLOCK &kp K &kp B &kp P &kp RALT
+ &kp LCTRL &kp W &kp J &kp X &none           &none &kp X &kp J &kp W &kp RCTRL
+ &kp LSHIFT &kp Q &kp Z &kp GRAVE &none      &none &kp GRAVE &kp Z &kp Q &kp RSHIFT
+                &none &mo NAV &none          &none &mo NAV &none
+            >;
+        };
 
-		/* FLU */
-		combo_dv {
-			timeout-ms = <60>;
-			key-positions = <1 2>;
-			bindings = <&kp LBKT>;
-		};
-		combo_vy {
-			timeout-ms = <60>;
-			key-positions = <2 3>;
-			bindings = <&kp RBKT>;
-		};
-		combo_fl {
-			timeout-ms = <60>;
-			key-positions = <6 7>;
-			bindings = <&kp LPAR>;
-		};
-		combo_lu {
-			timeout-ms = <60>;
-			key-positions = <7 8>;
-			bindings = <&kp RPAR>;
-		};
-		combo_cg {
-			timeout-ms = <60>;
-			key-positions = <12 13>;
-			bindings = <&kp SPACE>;
-		};
-		combo_mcg {
-			timeout-ms = <60>;
-			key-positions = <11 12 13>;
-			bindings = <&kp ENTER>;
-		};
+        numpad {
+            label = "NUMPAD";
+            bindings = <
+ &kp LALT &kp KP_7 &kp KP_8 &kp KP_9 &kp NUMLOCK   &kp NUMLOCK &kp KP_9 &kp KP_8 &kp KP_7 &kp RALT
+ &kp RSHIFT &kp KP_4 &kp KP_5 &kp KP_6 &none       &none &kp KP_6 &kp KP_5 &kp KP_4 &kp RSHIFT
+ &kp LSHIFT &kp KP_1 &kp KP_2 &kp KP_3 &kp BACKSPACE &kp BACKSPACE &kp KP_3 &kp KP_2 &kp KP_1 &kp RSHIFT
+                &none &mo FN &none              &none &mo FN &none
+            >;
+        };
 
-		/* QZ */
-		combo_pb {
-			timeout-ms = <60>;
-			key-positions = <1 2>;
-			bindings = <&kp SLASH>;
-		};
-		combo_bk {
-			timeout-ms = <60>;
-			key-positions = <2 3>;
-			bindings = <&kp EXCL>;
-		};
-		combo_wj {
-			timeout-ms = <60>;
-			key-positions = <6 7>;
-			bindings = <&kp CARET>;
-		};
-		combo_jx {
-			timeout-ms = <60>;
-			key-positions = <7 8>;
-			bindings = <&kp AT>;
-		};
-		combo_qz {
-			timeout-ms = <60>;
-			key-positions = <11 12>;
-			bindings = <&kp HASH>;
-		};
-		combo_zgr {
-			timeout-ms = <60>;
-			key-positions = <12 13>;
-			bindings = <&kp SPACE>;
-		};
-		combo_qzg {
-			timeout-ms = <60>;
-			key-positions = <11 12 13>;
-			bindings = <&kp ENTER>;
-		};
+        fn {
+            label = "FN";
+            bindings = <
+ &kp LALT &kp F1 &kp F2 &kp F3 &kp F4    &kp F4 &kp F3 &kp F2 &kp F1 &kp RALT
+ &kp LCTRL &kp F5 &kp F6 &kp F7 &kp F8   &kp F8 &kp F7 &kp F6 &kp F5 &kp RCTRL
+ &kp LSHIFT &kp F9 &kp F10 &kp F11 &kp F12  &kp F12 &kp F11 &kp F10 &kp F9 &kp RSHIFT
+                &none &none &none        &none &none &none
+            >;
+        };
 
-		/* NUM */
-		combo_78 {
-			timeout-ms = <60>;
-			key-positions = <1 2>;
-			bindings = <&kp KP_SLASH>;
-		};
-		combo_89 {
-			timeout-ms = <60>;
-			key-positions = <2 3>;
-			bindings = <&kp KP_ASTERISK>;
-		};
-		combo_456 {
-			timeout-ms = <60>;
-			key-positions = <6 7 8>;
-			bindings = <&kp EQUAL>;
-		};
-		combo_123 {
-			timeout-ms = <60>;
-			key-positions = <11 12 13>;
-			bindings = <&kp KP_ENTER>;
-		};
-	};
+        nav {
+            label = "NAV";
+            bindings = <
+ &kp LALT &kp HOME &kp UP &kp END &kp MEDIA_NEXT   &kp MEDIA_NEXT &kp F3 &kp UP &kp F1 &kp RALT
+ &kp LCTRL &kp LEFT &kp DOWN &kp RIGHT &kp MEDIA_PREV  &kp MEDIA_PREV &kp LEFT &kp DOWN &kp RIGHT &kp RCTRL
+ &kp LSHIFT &kp MUTE &kp VOL_DOWN &kp VOL_UP &kp PLAY_PAUSE  &kp F12 &kp F11 &kp F10 &kp F9 &kp RSHIFT
+                &none &none &none        &none &none &none
+            >;
+        };
+    };
 };
