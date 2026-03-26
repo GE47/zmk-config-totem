@@ -47,7 +47,7 @@
 
         Escape-Right {
             bindings = <&kp ESCAPE>;
-            key-positions = <5 6>;
+            key-positions = <4 3>;
             layers = <0 1 2>;
         };
 
@@ -93,10 +93,10 @@
         sym_layer {
             label = "SYM";
             bindings = <
-         &kp EXCL  &kp AT     &kp HASH  &kp DOLLAR              &kp PERCENT       &kp CARET  &kp AMPERSAND     &kp STAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-         &none     &kp GRAVE  &none     &none                   &kp PLUS          &kp EQUAL  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp SINGLE_QUOTE      &kp QUESTION
-&kp TAB  &none     &kp TILDE  &none     &kp BACKSLASH           &kp PIPE          &kp MINUS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp DOUBLE_QUOTES     &kp SLASH              &trans
-                              &kp LALT  &mt LEFT_COMMAND SPACE  &kp LEFT_SHIFT    &mo 1      &mo 2             &mt LCTRL TAB
+         &kp EXCL  &kp AT     &kp HASH       &kp DOLLAR              &kp PERCENT       &kp CARET  &kp AMPERSAND     &kp STAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+         &none     &kp GRAVE  &kp LESS_THAN  &kp GREATER_THAN        &kp PLUS          &kp EQUAL  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp SINGLE_QUOTE      &kp QUESTION
+&kp TAB  &none     &kp TILDE  &none          &kp BACKSLASH           &kp PIPE          &kp MINUS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp DOUBLE_QUOTES     &kp SLASH              &trans
+                              &kp LALT       &mt LEFT_COMMAND SPACE  &kp LEFT_SHIFT    &mo 1      &mo 2             &mt LCTRL TAB
             >;
         };
     };
