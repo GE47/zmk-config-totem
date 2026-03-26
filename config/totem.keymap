@@ -58,12 +58,7 @@
 
         Ent {
             bindings = <&kp ENTER>;
-            key-positions = <15 16>;
-        };
-
-        Base {
-            bindings = <&to 0>;
-            key-positions = <13 14>;
+            key-positions = <2 3>;
         };
     };
 
