@@ -60,6 +60,11 @@
             bindings = <&kp ENTER>;
             key-positions = <1 2>;
         };
+
+        Switch_to_gaming {
+            bindings = <&tog 3>;
+            key-positions = <34 33 32>;
+        };
     };
 
     keymap {
@@ -92,6 +97,15 @@
          &none     &kp GRAVE  &kp LESS_THAN  &kp GREATER_THAN        &kp PLUS          &kp EQUAL  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp SINGLE_QUOTE      &kp QUESTION
 &kp TAB  &none     &kp TILDE  &none          &kp BACKSLASH           &kp PIPE          &kp MINUS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp DOUBLE_QUOTES     &kp SLASH              &trans
                               &kp LALT       &mt LEFT_COMMAND SPACE  &kp LEFT_SHIFT    &mo 1      &mo 2             &mt LCTRL TAB
+            >;
+        };
+
+        gaming_layer {
+            bindings = <
+         &kp T  &kp N1  &kp W      &kp N2     &kp N3             &trans  &trans  &trans  &trans  &trans
+         &kp G  &kp A   &kp S      &kp D      &kp N6             &trans  &trans  &trans  &trans  &trans
+&kp TAB  &kp J  &kp Z   &kp X      &kp N4     &kp N5             &trans  &trans  &trans  &trans  &trans  &trans
+                        &kp RCTRL  &kp SPACE  &kp RIGHT_SHIFT    &trans  &trans  &trans
             >;
         };
     };
